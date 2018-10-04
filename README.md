@@ -1,4 +1,5 @@
 Main Author:  Ben Harosh
+
 Acknowledgments: Jim White
 
 This project contains the Dockerfile needed to create the shared Docker volume for the EdgeX Foundry database, log files, and Consul config and data files.
