@@ -16,7 +16,7 @@
 ###############################################################################
 # Create a Docker volume for use by Mongo data files, 
 # micro service log files, and Consul config and data files
-FROM arm64v8/ubuntu:zesty
+FROM arm32v7/ubuntu
 MAINTAINER Cloud Tsai <Cloud.Tsai@Dell.com>
 
 # Create a consul user and group first so the IDs get set the same way, even as
