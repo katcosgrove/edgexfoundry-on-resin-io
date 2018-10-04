@@ -1,0 +1,47 @@
+
+version: '2'
+volumes:
+  db-data:
+  log-data:
+  consul-config:
+  consul-data:
+
+services:
+  volume:
+    build:
+      context: .
+      dockerfile: edgexvolume.Dockerfile
+    image: edgexfoundry/docker-edgex-volume
+    container_name: edgex-files
+    networks:
+      - edgex-network
+    volumes:
+      - db-data:/data/db
+      - log-data:/edgex/logs
+      - consul-config:/consul/config
+      - consul-data:/consul/data
+      
+  consul:
+    image: arm32v6/consul:latest
+    ports:
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:8600"
+    container_name: edgex-core-consul
+    hostname: edgex-core-consul
+    networks:
+      edgex-network:
+        aliases:
+            - edgex-core-consul
+    volumes:
+      - db-data:/data/db
+      - log-data:/edgex/logs
+      - consul-config:/consul/config
+      - consul-data:/consul/data
+    depends_on:
+      - volume 
+
+networks:
+  edgex-network:
+    driver: "bridge"
+...
