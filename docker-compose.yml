@@ -6,6 +6,10 @@ volumes:
   consul-config:
   consul-data:
 
+networks:
+  edgex-network:
+    driver: "bridge"
+
 services:
   volume:
     build:
@@ -14,7 +18,9 @@ services:
     image: edgexfoundry/docker-edgex-volume
     container_name: edgex-files
     networks:
-      - edgex-network
+      edgex-network:
+        aliases:
+            - edgex-core-volume
     volumes:
       - db-data:/data/db
       - log-data:/edgex/logs
@@ -40,8 +46,3 @@ services:
       - consul-data:/consul/data
     depends_on:
       - volume 
-
-networks:
-  edgex-network:
-    driver: "bridge"
-...
