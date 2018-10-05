@@ -51,9 +51,9 @@ services:
     build:
       context: ./core-config-seed-go
       dockerfile: Dockerfile
-    image: edgexfoundry/docker-core-config-seed-go
-    container_name: edgex-config-seed
-    hostname: edgex-core-config-seed
+    image: core-config-seed-go
+    container_name: core-config-seed-go
+    hostname: core-config-seed-go
     networks:
       edgex-network:
         aliases:
