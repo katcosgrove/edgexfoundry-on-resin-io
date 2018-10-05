@@ -2,8 +2,9 @@ FROM arm32v7/ubuntu
 
 # installing system dependencie and OS tools
 RUN apt-get update 
-RUN apt-get install build-essential git wget libzmq3-dev
 RUN apt-get install openssh-server vim-tiny pkg-config
+RUN apt-get install build-essential git wget libzmq3-dev
+
 
 # crterate swap file 
 RUN touch /tmp/theswap \
