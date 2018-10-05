@@ -2,8 +2,11 @@ FROM arm32v7/ubuntu
 
 # installing system dependencie and OS tools
 RUN apt-get update 
-RUN apt-get install openssh-server vim-tiny pkg-config
-RUN apt-get install build-essential git wget libzmq3-dev
+COPY ./apt-get-install.sh .
+
+RUN chmod 777 ./apt-get-intsall.sh 
+
+RUN ./apt-get-install.sh
 
 
 # crterate swap file 
@@ -23,8 +26,8 @@ RUN chmod 777 add_go_env_variables_bashrc.sh && ./add_go_env_variables_bashrc.sh
 RUN source ~/.bashrc
 
 # install glide
-RUN apt-get install curl \
-	&& curl https://glide.sh/get | GOPATH=/usr/local/go sh
+# RUN apt-get install curl \
+#	&& curl https://glide.sh/get | GOPATH=/usr/local/go sh
 
 
 # get the edgexfoundry source
