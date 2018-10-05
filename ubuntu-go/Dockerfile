@@ -2,7 +2,7 @@ FROM arm32v7/ubuntu
 
 # installing system dependencie and OS tools
 RUN apt-get update 
-COPY ./apt-get-install.sh .
+COPY apt-get-install.sh apt-get-install.sh
 
 RUN chmod 777 ./apt-get-intsall.sh 
 
