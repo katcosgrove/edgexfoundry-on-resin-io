@@ -14,7 +14,7 @@ services:
   volume:
     build:
       context: ./edgex-volume
-      dockerfile: edgexvolume.Dockerfile
+      dockerfile: Dockerfile
     image: edgexfoundry/docker-edgex-volume
     container_name: edgex-files
     networks:
@@ -46,3 +46,23 @@ services:
       - consul-data:/consul/data
     depends_on:
       - volume 
+
+  config-seed:
+    build:
+      context: ./core-config-seed-go
+      dockerfile: Dockerfile
+    image: edgexfoundry/docker-core-config-seed-go
+    container_name: edgex-config-seed
+    hostname: edgex-core-config-seed
+    networks:
+      edgex-network:
+        aliases:
+            - edgex-core-config-seed
+    volumes:
+      - db-data:/data/db
+      - log-data:/edgex/logs
+      - consul-config:/consul/config
+      - consul-data:/consul/data
+    depends_on:
+      - volume
+      - consul
