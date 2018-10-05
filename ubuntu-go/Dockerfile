@@ -10,8 +10,9 @@ RUN apt-get update \
 RUN touch /tmp/theswap \
 	&& chmod 600 /tmp/theswap \
 	&& dd if=/dev/zero of=/tmp/theswap bs=1M count=2048 \
-	&& mkswap /tmp/theswap \
-	&& swapon /tmp/theswap
+	&& mkswap /tmp/theswap 
+# todo: swapom isn't working because of permissions issue
+#	swapon /tmp/theswap
 
 # installing golang and setting $GOPATH
 RUN wget https://dl.google.com/go/go1.10.1.linux-armv6l.tar.gz \
@@ -31,6 +32,4 @@ RUN go get github.com/edgexfoundry/edgex-go
 WORKDIR ~/go/src/github.com/edgexfoundry/edgex-go
 
 RUN make prepare
-RUN make build
-
-
+RUN make buildß
