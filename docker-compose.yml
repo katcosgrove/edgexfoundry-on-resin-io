@@ -13,7 +13,7 @@ networks:
 services:
   config-seed:
     build:
-      context: .
+      context: ./core-config-seed-go
       dockerfile: Dockerfile
     image: edgexfoundry/docker-core-config-seed-go
     container_name: edgex-config-seed
