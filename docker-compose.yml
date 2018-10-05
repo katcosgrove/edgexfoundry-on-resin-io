@@ -12,7 +12,9 @@ networks:
 
 services:
   ubuntu:
-    image: arm32v7/ubuntu 
+    build: 
+      context: ./ubuntu-go
+      dockerfile: Dockerfile 
     container_name: ubunto-arm
     networks:
       edgex-network:
