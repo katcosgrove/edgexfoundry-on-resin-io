@@ -19,7 +19,7 @@ services:
         aliases:
             - edgex-core-config-seed
 
-    config-seed:
+  config-seed:
     build: 
       context: ./core-config-seed-go
       dockerfile: Dockerfile
