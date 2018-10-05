@@ -15,10 +15,10 @@ RUN touch /tmp/theswap \
 #	swapon /tmp/theswap
 
 # installing golang and setting $GOPATH
-RUN wget https://dl.google.com/go/go1.10.1.linux-armv6l.tar.gz \
-	&& tar -C /usr/local -xvf go1.10.1.linux-armv6l.tar.gz \
+RUN wget https://dl.google.com/go/go1.10.1.linux-armv6l.tar.gz
+RUN tar -C /usr/local -xvf go1.10.1.linux-armv6l.tar.gz
 
-COPY ./add_go_env_variables_bashrc.sh .
+COPY add_go_env_variables_bashrc.sh add_go_env_variables_bashrc.sh
 
 RUN chmod 777 add_go_env_variables_bashrc.sh && ./add_go_env_variables_bashrc.sh
 RUN source ~/.bashrc
