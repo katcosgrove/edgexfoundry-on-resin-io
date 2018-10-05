@@ -21,7 +21,7 @@ RUN tar -C /usr/local -xvf go1.10.1.linux-armv6l.tar.gz
 COPY add_go_env_variables_bashrc.sh add_go_env_variables_bashrc.sh
 
 RUN chmod 777 add_go_env_variables_bashrc.sh && ./add_go_env_variables_bashrc.sh
-RUN source ~/.bashrc
+RUN /bin/bash -c "source ~/.bashrc"
 
 # install glide
 RUN curl https://glide.sh/get | GOPATH=/usr/local/go sh
@@ -32,4 +32,4 @@ RUN go get github.com/edgexfoundry/edgex-go
 WORKDIR ~/go/src/github.com/edgexfoundry/edgex-go
 
 RUN make prepare
-RUN make buildß
+RUN make build
