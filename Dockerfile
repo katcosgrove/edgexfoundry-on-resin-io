@@ -1,1 +1,0 @@
-./core-config-seed-go/Dockerfile
