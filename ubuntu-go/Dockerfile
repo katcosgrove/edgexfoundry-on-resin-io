@@ -3,10 +3,14 @@ FROM arm32v7/ubuntu
 # installing system dependencie and OS tools
 RUN apt-get update 
 
-RUN chmod 777 apt-get-intsall.sh
-COPY apt-get-install.sh apt-get-install.sh
+RUN apt-get install -y openssh-server
 
-RUN apt-get-install.sh
+RUN apt-get install -y  vim-tiny pkg-config
+
+# RUN chmod 777 apt-get-intsall.sh
+# COPY apt-get-install.sh apt-get-install.sh
+
+# RUN apt-get-install.sh
 
 
 # crterate swap file 
