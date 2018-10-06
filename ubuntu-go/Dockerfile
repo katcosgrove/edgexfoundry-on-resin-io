@@ -24,7 +24,10 @@ RUN chmod 777 add_go_env_variables_bashrc.sh && ./add_go_env_variables_bashrc.sh
 RUN /bin/bash -c "source ~/.bashrc"
 
 # install glide
-RUN curl -SL https://glide.sh/get | GOPATH=/usr/local/go sh
+ENV GOPTH=/usr/local/go
+RUN curl -SL https://glide.sh/get | sh
+
+ENV GOPTH=/root/go
 
 # get the edgexfoundry source
 RUN go get github.com/edgexfoundry/edgex-go
