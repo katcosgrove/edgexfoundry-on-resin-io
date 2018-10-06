@@ -25,7 +25,11 @@ RUN /bin/bash -c "source ~/.bashrc"
 
 # install glide
 ENV GOPTH=/usr/local/go
-RUN curl -SL https://glide.sh/get | sh
+COPY install-glide.sh install-glide.sh
+
+RUN chmod 777 install-glide.sh && ./install-glide.sh
+
+# RUN curl -s https://glide.sh/get | sh
 
 ENV GOPTH=/root/go
 
