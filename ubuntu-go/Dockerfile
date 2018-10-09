@@ -34,14 +34,14 @@ ENV GOPATH=/usr/local/go
 # RUN ./install-glide.sh
 
 RUN apt-get update && apt-get install -y curl
-RUN curl -s https://glide.sh/get | GOPATH=/usr/local/go sh
+# RUN curl -s https://glide.sh/get | GOPATH=/usr/local/go sh
 
-ENV GOPATH=/root/go
+# ENV GOPATH=/root/go
 
 # get the edgexfoundry source
 RUN go get github.com/edgexfoundry/edgex-go
 
-WORKDIR ~/go/src/github.com/edgexfoundry/edgex-go
+# WORKDIR ~/go/src/github.com/edgexfoundry/edgex-go
 
-RUN make prepare
-RUN make build
+# RUN make prepare
+# RUN make build
