@@ -4,6 +4,7 @@ MAINTAINER Steve Osselton <steve@iotechsys.com>
 ENV GOPATH=/go
 ENV PATH=$GOPATH/bin:$PATH
 RUN apk add --update --no-cache go git build-base
+RUN apt-get update && apt-get install -y apk
 RUN go get github.com/hashicorp/consul/api
 RUN go get github.com/magiconair/properties
 RUN go get gopkg.in/yaml.v2
