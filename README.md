@@ -2,7 +2,7 @@ Main Author:  Ben Harosh
 
 Acknowledgments: Jim White
 
-This project is intened to deploy the Edgex Foundry framework for IoT edge computing on a Resin.io framework that is running on the Resi OS (arm32v7 kernel).
+This project is intened to deploy the Edgex Foundry framework for IoT edge computing on a Resin.io framework that is running on the ResinOS (arm32v7 kernel).
 
 The main challenge is that the Edgex Foundry framework was built for 64-bit based OS while Resin.io is running on ResinOS which is running ARM 32-bit linux OS. For example, a big challenge is finding a 32-bit mongoDB version that will run on the ARM 32-bit OS.
 
