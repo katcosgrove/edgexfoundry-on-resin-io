@@ -1,6 +1,7 @@
 FROM arm32v7/ubuntu
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN ls
 
 # installing system dependencie and OS tools
 
@@ -32,7 +33,7 @@ ENV GOPATH=/usr/local/go
 # RUN chmod +x install-glide.sh 
 # RUN ./install-glide.sh
 
-RUN apt-get update && apt-get install curl
+RUN apt-get update && apt-get install -y curl
 RUN curl -s https://glide.sh/get | GOPATH=/usr/local/go sh
 
 ENV GOPATH=/root/go
