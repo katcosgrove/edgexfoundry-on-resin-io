@@ -1,5 +1,7 @@
 FROM arm32v7/ubuntu
 
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # installing system dependencie and OS tools
 
 RUN apt-get update \
@@ -24,15 +26,15 @@ RUN chmod 777 add_go_env_variables_bashrc.sh && ./add_go_env_variables_bashrc.sh
 RUN /bin/bash -c "source ~/.bashrc"
 
 # install glide
-ENV GOPTH=/usr/local/go
-COPY install-glide.sh install-glide.sh
+# ENV GOPTH=/usr/local/go
+# COPY install-glide.sh install-glide.sh
 
-RUN chmod +x install-glide.sh 
-RUN ./install-glide.sh
+# RUN chmod +x install-glide.sh 
+# RUN ./install-glide.sh
 
-# RUN curl -s https://glide.sh/get | sh
+RUN curl -s https://glide.sh/get | GOPTH=/usr/local/go sh
 
-ENV GOPTH=/root/go
+# ENV GOPTH=/root/go
 
 # get the edgexfoundry source
 RUN go get github.com/edgexfoundry/edgex-go
