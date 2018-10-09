@@ -32,7 +32,7 @@ RUN /bin/bash -c "source ~/.bashrc"
 # RUN chmod +x install-glide.sh 
 # RUN ./install-glide.sh
 
-RUN apt-get && apt-get install curl
+RUN apt-get update && apt-get install curl
 RUN curl -s https://glide.sh/get | GOPTH=/usr/local/go sh
 
 # ENV GOPTH=/root/go
