@@ -1,16 +1,14 @@
 FROM resin/raspberry-pi-golang:1.9-stretch AS builder
-MAINTAINER Steve Osselton <steve@iotechsys.com>
+MAINTAINER Ben Harosh<benha@jfrog.com>
 
-RUN echo $GOPATH
 ENV GOPATH=/go
 ENV PATH=$GOPATH/bin:$PATH
-# RUN apk add --update --no-cache go git build-base
-RUN apt-get update && apt-get install -y git build-essential
-RUN go get github.com/hashicorp/consul/api
-RUN go get github.com/magiconair/properties
-RUN go get gopkg.in/yaml.v2
-RUN go get github.com/BurntSushi/toml
-RUN go get github.com/fatih/structs
+RUN apt-get update && apt-get install -y git build-essential \
+    && go get github.com/hashicorp/consul/api \
+	&& go get github.com/magiconair/properties \
+	&& go get gopkg.in/yaml.v2 \
+	&& go get github.com/BurntSushi/toml \
+	&& go get github.com/fatih/structs
 
 # Set the working directory
 
