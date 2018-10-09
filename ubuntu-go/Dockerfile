@@ -26,6 +26,9 @@ COPY add_go_env_variables_bashrc.sh add_go_env_variables_bashrc.sh
 RUN chmod 777 add_go_env_variables_bashrc.sh && ./add_go_env_variables_bashrc.sh
 RUN /bin/bash -c "source ~/.bashrc"
 
+RUN echo $PATH
+RUN echo $GOPATH
+
 # install glide
 ENV GOPATH=/usr/local/go
 # COPY install-glide.sh install-glide.sh
@@ -34,7 +37,7 @@ ENV GOPATH=/usr/local/go
 # RUN ./install-glide.sh
 
 RUN apt-get update && apt-get install -y curl
-# RUN curl -s https://glide.sh/get | GOPATH=/usr/local/go sh
+RUN curl -s https://glide.sh/get | GOPATH=/usr/local/go sh
 
 # ENV GOPATH=/root/go
 
