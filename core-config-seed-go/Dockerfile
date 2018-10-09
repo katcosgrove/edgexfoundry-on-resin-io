@@ -20,7 +20,7 @@ WORKDIR $GOPATH/src/github.com/edgexfoundry/core-config-seed-go
 COPY . .
 
 # Build
-RUN apk update && apk add make
+RUN apt-get update && apt-get install -y make
 RUN make build
 
 #
