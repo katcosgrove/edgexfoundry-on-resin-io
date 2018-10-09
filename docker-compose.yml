@@ -11,16 +11,6 @@ networks:
     driver: "bridge"
 
 services:
-  ubuntu:
-    build: 
-      context: ./ubuntu-go
-      dockerfile: Dockerfile 
-    container_name: ubunto-arm
-    networks:
-      edgex-network:
-        aliases:
-            - edgex-core-config-seed
-
   config-seed:
     build: 
       context: ./core-config-seed-go

@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-golang:1.9-stretch AS builder
+FROM arm32v6/alpine:3.7 AS builder
 MAINTAINER Steve Osselton <steve@iotechsys.com>
 
 ENV GOPATH=/go
@@ -23,7 +23,7 @@ RUN make build
 
 #
 
-FROM resin/raspberry-pi-golang:1.9-stretch
+FROM arm32v7/ubuntu
 
 LABEL license='SPDX-License-Identifier: Apache-2.0' \
       copyright='Copyright (c) 2017: Steve Osselton'
