@@ -11,6 +11,24 @@ networks:
     driver: "bridge"
 
 services:
+  mongodb:
+    build: 
+      context: ./mongo
+      dockerfile: Dockerfile
+    image: edgexfoundry/mongo
+    container_name: edgex-mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - edgex-network
+    volumes:
+      - db-data:/data/db
+      - log-data:/edgex/logs
+      - consul-config:/consul/config
+      - consul-data:/consul/data
+    depends_on:
+      - volume
+
   config-seed:
     build: 
       context: ./core-config-seed-go

@@ -1,7 +1,6 @@
-FROM arm32v7/ubuntu
+FROM resin/raspberry-pi-golang:1.9-stretch
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN ls
+# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # installing system dependencie and OS tools
 
@@ -10,10 +9,10 @@ RUN apt-get update \
 	&& apt-get install -y build-essential git wget libzmq3-dev curl
 
 # crterate swap file 
-RUN touch /tmp/theswap \
-	&& chmod 600 /tmp/theswap \
-	&& dd if=/dev/zero of=/tmp/theswap bs=1M count=2048 \
-	&& mkswap /tmp/theswap 
+#RUN touch /tmp/theswap \
+#	&& chmod 600 /tmp/theswap \
+#	&& dd if=/dev/zero of=/tmp/theswap bs=1M count=2048 \
+#	&& mkswap /tmp/theswap 
 # todo: swapom isn't working because of permissions issue
 #	swapon /tmp/theswap
 
