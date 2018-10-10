@@ -20,7 +20,9 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - edgex-network
+      edgex-network:
+        aliases:
+            - edgex-core-volume
     volumes:
       - db-data:/data/db
       - log-data:/edgex/logs
