@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-golang:1.9-stretch
+FROM raspbian/stretch
 
 RUN apt-get install -y scons libssl-dev python-pip libffi-dev libcurl4-openssl-dev cmake
 RUN pip install -r ./buildscripts/requirements.txt 
